@@ -71,6 +71,15 @@
   .page-banner-img {
     margin: 0 auto;
   }
+
+  .faq-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .faq-intro-col {
+    position: static;
+  }
   
   .timeline::before {
     left: 20px;

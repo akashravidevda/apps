@@ -1012,13 +1012,48 @@ p.lead {
   gap: 16px;
 }
 
-/* FAQ Accordion (Permanent visibility, click-to-reveal answer) */
+/* ==========================================================================
+   FAQ Section: Premium Clinical Editorial Design
+   ========================================================================== */
+.faq-layout-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.faq-intro-col {
+  position: sticky;
+  top: 100px;
+}
+
+.faq-support-card {
+  background-color: var(--color-primary-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.faq-support-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .faq-list {
-  max-width: 800px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .faq-item {
@@ -1026,10 +1061,8 @@ p.lead {
   border-radius: var(--radius-card);
   border: 1.5px solid var(--color-border);
   box-shadow: var(--shadow-sm);
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: all var(--transition-base);
+  overflow: hidden;
 }
 
 .faq-item:hover {
@@ -1037,27 +1070,49 @@ p.lead {
   box-shadow: var(--shadow-md);
 }
 
+.faq-item.active {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(23, 74, 58, 0.08);
+}
+
 .faq-question {
   width: 100%;
-  padding: 22px 28px;
+  padding: 22px 26px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-align: left;
   font-family: var(--font-heading);
-  font-size: 1.12rem;
+  font-size: 1.08rem;
   font-weight: 600;
   color: var(--color-primary-dark);
   background: none;
   border: none;
   cursor: pointer;
-  border-radius: var(--radius-card);
   gap: 16px;
 }
 
+.faq-q-text {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  line-height: 1.4;
+}
+
+.faq-num {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  background-color: var(--color-primary-subtle);
+  padding: 4px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
 .faq-icon {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-pill);
   background-color: var(--color-primary-subtle);
   color: var(--color-primary);
@@ -1065,13 +1120,23 @@ p.lead {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.faq-icon-v {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transform-origin: center;
 }
 
 .faq-item.active .faq-icon {
-  transform: rotate(180deg);
   background-color: var(--color-primary);
   color: #FFFFFF;
+}
+
+/* Morph Plus into Minus smoothly */
+.faq-item.active .faq-icon-v {
+  transform: scaleY(0);
+  opacity: 0;
 }
 
 .faq-answer-wrapper {
@@ -1086,7 +1151,7 @@ p.lead {
 
 .faq-answer-inner {
   overflow: hidden;
-  padding: 0 28px;
+  padding: 0 26px;
   opacity: 0;
   transition: opacity 0.25s ease, padding-bottom 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1098,9 +1163,13 @@ p.lead {
 
 .faq-answer-inner p {
   color: var(--color-text-muted);
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.7;
   margin: 0;
+}
+
+.faq-answer-inner strong {
+  color: var(--color-primary-dark);
 }
 
 .faq-answer p {
