@@ -75,6 +75,8 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -85,6 +87,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  max-width: 100vw;
   position: relative;
 }
 
@@ -477,18 +480,20 @@ p.lead {
   background-color: var(--color-primary-subtle);
 }
 
-/* Mobile Drawer */
+/* Mobile Drawer (Zero Canvas Overflow) */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 85%;
-  max-width: 380px;
+  max-width: 340px;
   height: 100vh;
   background-color: var(--color-surface);
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
   z-index: 1050;
-  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
   padding: 30px 24px;
   display: flex;
   flex-direction: column;
@@ -497,7 +502,8 @@ p.lead {
 }
 
 .mobile-nav-drawer.open {
-  right: 0;
+  transform: translateX(0);
+  visibility: visible;
 }
 
 .mobile-overlay {
