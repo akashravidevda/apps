@@ -152,8 +152,11 @@
       </div>
 
       <div class="hero-visual reveal">
-        <div class="hero-image-wrapper">
-          <img src="images/doctor.jpg" alt="Portrait of Dr. Abhijeet A. Gadiwadd, Homoeopathic Physician & Metabolic Health Practitioner" width="440" height="520" fetchpriority="high">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-image-shell">
+          <div class="hero-image-wrapper">
+            <img src="images/doctor.jpg" alt="Portrait of Dr. Abhijeet A. Gadiwadd, Homoeopathic Physician & Metabolic Health Practitioner" width="440" height="520" fetchpriority="high">
+          </div>
         </div>
         <div class="floating-badge badge-top-left">
           <div class="floating-badge-icon">
@@ -272,69 +275,108 @@
   </section>
 
   <!-- Journey Timeline Section -->
-  <section class="section-padding" style="background-color: var(--color-bg);">
+  <section class="section-padding journey-section" style="background-color: var(--color-bg);">
     <div class="container">
       <div class="section-header reveal">
         <span class="eyebrow">CAREER MILESTONES</span>
         <h2>A Journey Built on Clinical Experience</h2>
-        <p>A timeline of academic education, multidisciplinary hospital exposure, and continuous homoeopathic development.</p>
+        <p>From hospital intensive-care wards to dedicated Homoeopathy and modern metabolic science — trace the milestones that shape every consultation today.</p>
       </div>
 
-      <div class="timeline">
-        <div class="timeline-item left reveal">
-          <div class="timeline-dot"></div>
+      <ol class="timeline" role="list">
+        <!-- Animated spine that fills as you scroll -->
+        <span class="timeline-progress" aria-hidden="true"></span>
+
+        <li class="timeline-item left reveal" style="--i:0;">
+          <div class="timeline-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="timeline-ghost">’11</span>
           <div class="timeline-card">
-            <span class="timeline-year">2011</span>
+            <div class="timeline-meta">
+              <span class="timeline-year">2011</span>
+              <span class="timeline-tag">Foundation</span>
+            </div>
             <h4>BHMS Graduation</h4>
             <p>Completed Bachelor of Homoeopathic Medicine and Surgery from Gulabrao Patil Homoeopathic Medical College under MUHS.</p>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item right reveal">
-          <div class="timeline-dot"></div>
+        <li class="timeline-item right reveal" style="--i:1;">
+          <div class="timeline-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <span class="timeline-ghost">’11–’17</span>
           <div class="timeline-card">
-            <span class="timeline-year">2011–2017</span>
+            <div class="timeline-meta">
+              <span class="timeline-year">2011–2017</span>
+              <span class="timeline-tag">Hospital Years</span>
+            </div>
             <h4>Clinical Hospital Practice</h4>
             <p>Gained intensive clinical experience across Gastroenterology, Intensive Care Units (ICU In-Charge) and Kidney Care centres.</p>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item left reveal">
-          <div class="timeline-dot"></div>
+        <li class="timeline-item left reveal" style="--i:2;">
+          <div class="timeline-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          </div>
+          <span class="timeline-ghost">’17</span>
           <div class="timeline-card">
-            <span class="timeline-year">2017</span>
-            <h4>Homoeopathy Practice</h4>
+            <div class="timeline-meta">
+              <span class="timeline-year">2017</span>
+              <span class="timeline-tag">Turning Point</span>
+            </div>
+            <h4>Dedicated to Homoeopathy</h4>
             <p>Began dedicated professional practice and academic involvement in Homoeopathy; joined HHF Mumbai and served as Regional Head for Kolhapur.</p>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item right reveal">
-          <div class="timeline-dot"></div>
+        <li class="timeline-item right reveal" style="--i:3;">
+          <div class="timeline-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="timeline-ghost">’19</span>
           <div class="timeline-card">
-            <span class="timeline-year">2019</span>
+            <div class="timeline-meta">
+              <span class="timeline-year">2019</span>
+              <span class="timeline-tag">Mentorship</span>
+            </div>
             <h4>Mentorship &amp; Academic Contribution</h4>
             <p>Continued advanced clinical development under the mentorship of Dr. Mahesh Chandra Sir, delivering case studies with the Mind Method.</p>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item left reveal">
-          <div class="timeline-dot"></div>
+        <li class="timeline-item left reveal" style="--i:4;">
+          <div class="timeline-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <span class="timeline-ghost">’23</span>
           <div class="timeline-card">
-            <span class="timeline-year">2023</span>
+            <div class="timeline-meta">
+              <span class="timeline-year">2023</span>
+              <span class="timeline-tag">Recognition</span>
+            </div>
             <h4>National Academic Presentation</h4>
             <p>Presented documented clinical case studies on a prestigious national academic platform conducted by HHF Mumbai.</p>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item right reveal">
-          <div class="timeline-dot"></div>
+        <li class="timeline-item right reveal is-present" style="--i:5;">
+          <div class="timeline-node" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <span class="timeline-ghost">Now</span>
           <div class="timeline-card">
-            <span class="timeline-year">Present</span>
+            <div class="timeline-meta">
+              <span class="timeline-year">Present</span>
+              <span class="timeline-tag tag-live"><span class="live-dot"></span>Ongoing</span>
+            </div>
             <h4>Metabolic Health &amp; LCHF</h4>
             <p>Completed Diploma in LCHF &amp; Metabolic Health, broadening individualized consultations to encompass metabolic, dietary and lifestyle considerations.</p>
           </div>
-        </div>
-      </div>
+        </li>
+      </ol>
     </div>
   </section>
 

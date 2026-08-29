@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initFaqAccordion();
   initConsultationModal();
+  initTimelineProgress();
 });
 
 /**
@@ -172,4 +173,48 @@ function initConsultationModal() {
       closeModal();
     }
   });
+}
+
+/**
+ * Career Milestones timeline — scroll-driven gradient spine fill.
+ * The vertical progress line grows from 0% to 100% as the timeline
+ * travels through the viewport, giving the journey a sense of motion.
+ */
+function initTimelineProgress() {
+  const timeline = document.querySelector('.timeline');
+  const progress = timeline && timeline.querySelector('.timeline-progress');
+  if (!timeline || !progress) return;
+
+  // Respect reduced-motion: show the spine fully filled, skip scroll math.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    progress.style.setProperty('--timeline-fill', '100%');
+    return;
+  }
+
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const rect = timeline.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    // Begin filling when the timeline top reaches ~78% down the viewport,
+    // complete once it has scrolled roughly to the vertical centre.
+    const start = vh * 0.78;
+    const distance = rect.height + vh * 0.28;
+    const scrolled = start - rect.top;
+    const pct = Math.max(0, Math.min(1, scrolled / distance));
+    progress.style.setProperty('--timeline-fill', (pct * 100).toFixed(2) + '%');
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
 }
