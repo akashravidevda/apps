@@ -135,10 +135,23 @@
   .card-grid-2, 
   .card-grid-4, 
   .trust-grid, 
-  .footer-grid,
   .contact-form-row {
     grid-template-columns: 1fr !important;
     gap: 16px;
+  }
+
+  /* Mobile footer layout: Doctor profile (full), Quick Links & Clinical Interests (2 cols side-by-side), Contact (full) */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px 20px !important;
+  }
+
+  .footer-col:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-col:last-child {
+    grid-column: 1 / -1;
   }
 
   .premium-card {
@@ -301,5 +314,14 @@
   .mobile-sticky-btn svg {
     width: 16px;
     height: 16px;
+  }
+
+  .footer-links a {
+    font-size: 0.86rem;
+  }
+
+  .footer-col h4 {
+    font-size: 1.02rem;
+    margin-bottom: 14px;
   }
 }
