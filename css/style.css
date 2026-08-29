@@ -1484,15 +1484,17 @@ textarea.form-control {
 .footer-links a {
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.94rem;
-  transition: color var(--transition-fast);
+  transition: color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .footer-links a:hover {
   color: var(--color-secondary);
-  transform: translateX(4px);
+  transform: translateX(4px) translateZ(0);
 }
 
 .footer-contact-list {
